@@ -21,8 +21,8 @@ public class User {
     private String email;
     private String phone;
 
-    public User(){
-    }
+//    public User(){
+//    }
 
     public User(Builder builder){
         id = builder.id;

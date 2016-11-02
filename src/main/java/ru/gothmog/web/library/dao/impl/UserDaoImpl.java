@@ -113,7 +113,7 @@ public class UserDaoImpl implements EntityDao<User> {
     @Override
     public User read(long id) {
         log.info("Read user");
-        User user = new User();
+        User user = new User.Builder(null, null, null, null).build();
         String sql = "SELECT * FROM library.users WHERE id = ?";
         try (Connection connection = daoSettings.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -153,7 +153,7 @@ public class UserDaoImpl implements EntityDao<User> {
              PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                User user = new User();
+                User user = new User.Builder(null, null, null, null).build();
                 user.setLoginName(resultSet.getString("loginName"));
                 user.setPassword(resultSet.getString("password"));
                 user.setCreateDate(resultSet.getDate("createDate"));
