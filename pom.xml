@@ -120,11 +120,10 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
-                    <warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+                    <warSourceDirectory>${basedir}/web</warSourceDirectory>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>
