@@ -1,4 +1,4 @@
-package ru.gothmog.webapp.library.exception;
+package ru.gothmog.web.library.exception;
 
 /**
  * Created by gothmog on 29.09.2016.

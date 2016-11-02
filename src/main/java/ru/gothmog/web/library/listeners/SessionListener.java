@@ -1,4 +1,4 @@
-package ru.gothmog.webapp.library.listeners;
+package ru.gothmog.web.library.listeners;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;

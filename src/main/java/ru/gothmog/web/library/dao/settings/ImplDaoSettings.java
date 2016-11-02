@@ -1,4 +1,4 @@
-package ru.gothmog.webapp.library.dao.settings;
+package ru.gothmog.web.library.dao.settings;
 
 import org.apache.log4j.Logger;
 

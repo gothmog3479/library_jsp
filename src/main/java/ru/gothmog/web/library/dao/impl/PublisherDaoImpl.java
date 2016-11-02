@@ -1,9 +1,9 @@
-package ru.gothmog.webapp.library.dao.impl;
+package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
-import ru.gothmog.webapp.library.beans.Publisher;
-import ru.gothmog.webapp.library.dao.ObjectDao;
-import ru.gothmog.webapp.library.dao.settings.ImplDaoSettings;
+import ru.gothmog.web.library.dao.ObjectDao;
+import ru.gothmog.web.library.beans.Publisher;
+import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 
 import java.io.IOException;
 import java.sql.Connection;

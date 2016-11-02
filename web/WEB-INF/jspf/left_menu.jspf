@@ -1,9 +1,9 @@
-<%@page import="ru.gothmog.webapp.library.beans.Genre" %>
+<%@page import="ru.gothmog.web.library.beans.Genre" %>
 <%@ page pageEncoding="UTF-8" %>
 <div class="sidebar1">
     <h4>Жанры:</h4>
     <ul class="nav">
-        <jsp:useBean id="genreList" class="ru.gothmog.webapp.library.dao.impl.GenreDaoImpl" scope="application"/>
+        <jsp:useBean id="genreList" class="ru.gothmog.web.library.dao.impl.GenreDaoImpl" scope="application"/>
 
         <%
 

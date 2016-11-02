@@ -1,4 +1,4 @@
-package ru.gothmog.webapp.library.dao;
+package ru.gothmog.web.library.dao;
 
 import java.io.IOException;
 import java.util.List;

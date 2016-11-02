@@ -1,4 +1,4 @@
-package ru.gothmog.webapp.library.beans;
+package ru.gothmog.web.library.beans;
 
 import java.sql.Date;
 
