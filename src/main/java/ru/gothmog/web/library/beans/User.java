@@ -21,7 +21,10 @@ public class User {
     private String email;
     private String phone;
 
-    private User(Builder builder){
+    public User(){
+    }
+
+    public User(Builder builder){
         id = builder.id;
         role = builder.role;
         loginName = builder.loginName;
@@ -107,7 +110,6 @@ public class User {
             return new User(this);
         }
     }
-
 
     public long getId() {
         return id;
