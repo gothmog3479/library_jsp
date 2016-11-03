@@ -21,8 +21,8 @@ public class User {
     private String email;
     private String phone;
 
-//    public User(){
-//    }
+    public User(){
+    }
 
     public User(Builder builder){
         id = builder.id;
@@ -44,10 +44,10 @@ public class User {
 
     public static class Builder{
         //Required parameters
-        private final String loginName;
-        private final String password;
-        private final String fullName;
-        private final String email;
+        private String loginName;
+        private String password;
+        private String fullName;
+        private String email;
         //Optional parameters - initialized to default values
         private long id = 0;
         private Role role = null;
