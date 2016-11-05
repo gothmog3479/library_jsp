@@ -56,7 +56,10 @@ public class UserDaoImpl implements EntityDao<User> {
         return result;
     }
 
-    public boolean update(long id, Role role, String loginName, String password, Date createDate, Date lastEditedDate, User createUser, User lastEditedUser, String surName, String firstName, String patronymic, String fullName, String email, String phone) {
+    public boolean update(long id, Role role, String loginName, String password,
+                          Date createDate, Date lastEditedDate, User createUser,
+                          User lastEditedUser, String surName, String firstName,
+                          String patronymic, String fullName, String email, String phone) {
         log.info("Update user");
         boolean result = false;
         String sql = "UPDATE  library.users SET roleid = ?, loginname = ?, passwd = ?," +
