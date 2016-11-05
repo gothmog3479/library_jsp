@@ -17,30 +17,14 @@ public class Role {
     public Role() {
     }
 
-    public Role(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public Role(String roleName, String description) {
-        this.roleName = roleName;
-        this.description = description;
-    }
-
-    public Role(String roleName, String description, Date createDate, User createUserRole) {
-        this.roleName = roleName;
-        this.description = description;
-        this.createDate = createDate;
-        this.createUserRole = createUserRole;
-    }
-
-    public Role(long id, String roleName, String description, Date createDate, Date lastEditedDate, User createUserRole, User lastEditedUserRole) {
-        this.id = id;
-        this.roleName = roleName;
-        this.description = description;
-        this.createDate = createDate;
-        this.lastEditedDate = lastEditedDate;
-        this.createUserRole = createUserRole;
-        this.lastEditedUserRole = lastEditedUserRole;
+    public Role(BuilderRole builderRole) {
+        id = builderRole.id;
+        roleName = builderRole.roleName;
+        description = builderRole.description;
+        createDate = builderRole.createDate;
+        lastEditedDate = builderRole.lastEditedDate;
+        createUserRole = builderRole.createUserRole;
+        lastEditedUserRole = builderRole.lastEditedUserRole;
     }
 
     public long getId() {
@@ -97,5 +81,51 @@ public class Role {
 
     public void setLastEditedUserRole(User lastEditedUserRole) {
         this.lastEditedUserRole = lastEditedUserRole;
+    }
+
+    public static class BuilderRole {
+        //Required parameters
+        private String roleName;
+        private String description;
+        //Optional parameters - initialized to default values
+        private long id = 0;
+        private Date createDate = null;
+        private Date lastEditedDate = null;
+        private User createUserRole = null;
+        private User lastEditedUserRole = null;
+
+        public BuilderRole(String roleName, String description) {
+            this.roleName = roleName;
+            this.description = description;
+        }
+
+        public BuilderRole id(long value) {
+            id = value;
+            return this;
+        }
+
+        public BuilderRole createDate(Date value) {
+            createDate = value;
+            return this;
+        }
+
+        public BuilderRole lastEditedDate(Date value) {
+            lastEditedDate = value;
+            return this;
+        }
+
+        public BuilderRole createUserRole(User value) {
+            createUserRole = value;
+            return this;
+        }
+
+        public BuilderRole lastEditedUserRole(User value) {
+            lastEditedUserRole = value;
+            return this;
+        }
+
+        public Role build() {
+            return new Role(this);
+        }
     }
 }
