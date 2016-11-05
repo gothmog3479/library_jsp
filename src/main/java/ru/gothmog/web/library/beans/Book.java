@@ -25,50 +25,22 @@ public class Book {
     public Book() {
     }
 
-    public Book(String bookName, byte[] content, int pageCount, String isbn, Author author, Genre genre, Publisher publisher, Date publishDate, byte[] image, String description) {
-        this.bookName = bookName;
-        this.content = content;
-        this.pageCount = pageCount;
-        this.isbn = isbn;
-        this.author = author;
-        this.genre = genre;
-        this.publisher = publisher;
-        this.publishDate = publishDate;
-        this.image = image;
-        this.description = description;
-    }
-
-    public Book(String bookName, byte[] content, int pageCount, String isbn, Author author, Genre genre, Publisher publisher, Date publishDate, byte[] image, String description, Date createDate, User createUserBook) {
-        this.bookName = bookName;
-        this.content = content;
-        this.pageCount = pageCount;
-        this.isbn = isbn;
-        this.author = author;
-        this.genre = genre;
-        this.publisher = publisher;
-        this.publishDate = publishDate;
-        this.image = image;
-        this.description = description;
-        this.createDate = createDate;
-        this.createUserBook = createUserBook;
-    }
-
-    public Book(long id, String bookName, byte[] content, int pageCount, String isbn, Author author, Genre genre, Publisher publisher, Date publishDate, byte[] image, String description, Date createDate, Date lastEditedDate, User createUserBook, User lastEditedUserBook) {
-        this.id = id;
-        this.bookName = bookName;
-        this.content = content;
-        this.pageCount = pageCount;
-        this.isbn = isbn;
-        this.author = author;
-        this.genre = genre;
-        this.publisher = publisher;
-        this.publishDate = publishDate;
-        this.image = image;
-        this.description = description;
-        this.createDate = createDate;
-        this.lastEditedDate = lastEditedDate;
-        this.createUserBook = createUserBook;
-        this.lastEditedUserBook = lastEditedUserBook;
+    public Book(BuilderBook builderBook) {
+        id = builderBook.id;
+        bookName = builderBook.bookName;
+        content = builderBook.content;
+        pageCount = builderBook.pageCount;
+        isbn = builderBook.isbn;
+        author = builderBook.author;
+        genre = builderBook.genre;
+        publisher = builderBook.publisher;
+        publishDate = builderBook.publishDate;
+        image = builderBook.image;
+        description = builderBook.description;
+        createDate = builderBook.createDate;
+        lastEditedDate = builderBook.lastEditedDate;
+        createUserBook = builderBook.createUserBook;
+        lastEditedUserBook = builderBook.lastEditedUserBook;
     }
 
     public long getId() {
@@ -189,5 +161,99 @@ public class Book {
 
     public void setLastEditedUserBook(User lastEditedUserBook) {
         this.lastEditedUserBook = lastEditedUserBook;
+    }
+
+    public static class BuilderBook {
+        //Required parameters
+        private String bookName;
+        private Author author;
+        //Optional parameters - initialized to default values
+        private long id = 0;
+        private byte[] content = null;
+        private int pageCount = 0;
+        private String isbn = null;
+        private Genre genre = null;
+        private Publisher publisher = null;
+        private Date publishDate = null;
+        private byte[] image = null;
+        private String description = null;
+        private Date createDate = null;
+        private Date lastEditedDate = null;
+        private User createUserBook = null;
+        private User lastEditedUserBook = null;
+
+        public BuilderBook(String bookName, Author author) {
+            this.bookName = bookName;
+            this.author = author;
+        }
+
+        public BuilderBook id(long value) {
+            id = value;
+            return this;
+        }
+
+        public BuilderBook content(byte[] value) {
+            content = value;
+            return this;
+        }
+
+        public BuilderBook pageCount(int value) {
+            pageCount = value;
+            return this;
+        }
+
+        public BuilderBook isbn(String value) {
+            isbn = value;
+            return this;
+        }
+
+        public BuilderBook genre(Genre value) {
+            genre = value;
+            return this;
+        }
+
+        public BuilderBook publisher(Publisher value) {
+            publisher = value;
+            return this;
+        }
+
+        public BuilderBook publishDate(Date value) {
+            publishDate = value;
+            return this;
+        }
+
+        public BuilderBook image(byte[] value) {
+            image = value;
+            return this;
+        }
+
+        public BuilderBook description(String value) {
+            description = value;
+            return this;
+        }
+
+        public BuilderBook createDate(Date value) {
+            createDate = value;
+            return this;
+        }
+
+        public BuilderBook lastEditedDate(Date value) {
+            lastEditedDate = value;
+            return this;
+        }
+
+        public BuilderBook createUserBook(User value) {
+            createUserBook = value;
+            return this;
+        }
+
+        public BuilderBook lastEditedUserBook(User value) {
+            lastEditedUserBook = value;
+            return this;
+        }
+
+        public Book build() {
+            return new Book(this);
+        }
     }
 }
