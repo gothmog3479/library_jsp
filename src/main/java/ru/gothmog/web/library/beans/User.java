@@ -21,10 +21,10 @@ public class User {
     private String email;
     private String phone;
 
-    public User(){
+    public User() {
     }
 
-    public User(Builder builder){
+    public User(BuilderUser builder) {
         id = builder.id;
         role = builder.role;
         loginName = builder.loginName;
@@ -39,76 +39,6 @@ public class User {
         fullName = builder.fullName;
         email = builder.email;
         phone = builder.phone;
-    }
-
-
-    public static class Builder{
-        //Required parameters
-        private String loginName;
-        private String password;
-        private String fullName;
-        private String email;
-        //Optional parameters - initialized to default values
-        private long id = 0;
-        private Role role = null;
-        private Date createDate = null;
-        private Date lastEditedDate = null;
-        private User createUser = null;
-        private User lastEditedUser = null;
-        private String surName = null;
-        private String firstName = null;
-        private String patronymic = null;
-        private String phone = null;
-
-        public Builder (String loginName, String password, String fullName, String email){
-            this.loginName = loginName;
-            this.password = password;
-            this.fullName = fullName;
-            this.email = email;
-        }
-        public Builder id(long value) {
-            id = value;
-            return this;
-        }
-        public Builder role(Role value) {
-            role = value;
-            return this;
-        }
-        public Builder createDate(Date value) {
-            createDate = value;
-            return this;
-        }
-        public Builder lastEditedDate(Date value){
-            lastEditedDate = value;
-            return this;
-        }
-        public Builder createUser(User value){
-            createUser = value;
-            return this;
-        }
-        public Builder lastEditedUser(User value){
-            lastEditedUser = value;
-            return this;
-        }
-        public Builder surName(String value){
-            surName = value;
-            return this;
-        }
-        public Builder firstName(String value){
-            firstName = value;
-            return this;
-        }
-        public Builder patronymic(String value) {
-            patronymic = value;
-            return this;
-        }
-        public Builder phone(String value){
-            phone = value;
-            return this;
-        }
-        public User build(){
-            return new User(this);
-        }
     }
 
     public long getId() {
@@ -221,5 +151,85 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public static class BuilderUser {
+        //Required parameters
+        private String loginName;
+        private String password;
+        private String fullName;
+        private String email;
+        //Optional parameters - initialized to default values
+        private long id = 0;
+        private Role role = null;
+        private Date createDate = null;
+        private Date lastEditedDate = null;
+        private User createUser = null;
+        private User lastEditedUser = null;
+        private String surName = null;
+        private String firstName = null;
+        private String patronymic = null;
+        private String phone = null;
+
+        public BuilderUser(String loginName, String password, String fullName, String email) {
+            this.loginName = loginName;
+            this.password = password;
+            this.fullName = fullName;
+            this.email = email;
+        }
+
+        public BuilderUser id(long value) {
+            id = value;
+            return this;
+        }
+
+        public BuilderUser role(Role value) {
+            role = value;
+            return this;
+        }
+
+        public BuilderUser createDate(Date value) {
+            createDate = value;
+            return this;
+        }
+
+        public BuilderUser lastEditedDate(Date value) {
+            lastEditedDate = value;
+            return this;
+        }
+
+        public BuilderUser createUser(User value) {
+            createUser = value;
+            return this;
+        }
+
+        public BuilderUser lastEditedUser(User value) {
+            lastEditedUser = value;
+            return this;
+        }
+
+        public BuilderUser surName(String value) {
+            surName = value;
+            return this;
+        }
+
+        public BuilderUser firstName(String value) {
+            firstName = value;
+            return this;
+        }
+
+        public BuilderUser patronymic(String value) {
+            patronymic = value;
+            return this;
+        }
+
+        public BuilderUser phone(String value) {
+            phone = value;
+            return this;
+        }
+
+        public User build() {
+            return new User(this);
+        }
     }
 }
