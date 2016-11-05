@@ -6,14 +6,14 @@ import java.util.List;
 /**
  * Created by gothmog on 22.09.2016.
  */
-public interface ObjectDao<E> {
-    void create(E e) throws IOException;
+public interface ObjectDao<T> {
+    void create(T type) throws IOException;
 
     void update(long id, String fullName) throws IOException;
 
     void delete(long id) throws IOException;
 
-    E read(long id) throws IOException;
+    T read(long id) throws IOException;
 
-    List<E> getAll();
+    List<T> getAll();
 }
