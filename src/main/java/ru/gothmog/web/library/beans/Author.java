@@ -16,26 +16,13 @@ public class Author {
     public Author() {
     }
 
-    public Author(String fullName, Date birthDay) {
-        this.fullName = fullName;
-        this.birthDay = birthDay;
-    }
-
-    public Author(String surName, String firstName, String patronymic, String fullName, Date birthDay) {
-        this.surName = surName;
-        this.firstName = firstName;
-        this.patronymic = patronymic;
-        this.fullName = fullName;
-        this.birthDay = birthDay;
-    }
-
-    public Author(long id, String surName, String firstName, String patronymic, String fullName, Date birthDay) {
-        this.id = id;
-        this.surName = surName;
-        this.firstName = firstName;
-        this.patronymic = patronymic;
-        this.fullName = surName + " " + firstName + " " + patronymic;
-        this.birthDay = birthDay;
+    public Author(BuilderAuthor builderAuthor) {
+        id = builderAuthor.id;
+        surName = builderAuthor.surName;
+        firstName = builderAuthor.firstName;
+        patronymic = builderAuthor.patronymic;
+        fullName = builderAuthor.fullName;
+        birthDay = builderAuthor.birthDay;
     }
 
     public long getId() {
@@ -84,5 +71,45 @@ public class Author {
 
     public void setBirthDay(Date birthDay) {
         this.birthDay = birthDay;
+    }
+
+    public static class BuilderAuthor {
+        //Required parameters
+        private String fullName;
+        private Date birthDay;
+        //Optional parameters - initialized to default values
+        private long id = 0;
+        private String surName = null;
+        private String firstName = null;
+        private String patronymic = null;
+
+        public BuilderAuthor(String fullName, Date birthDay) {
+            this.fullName = fullName;
+            this.birthDay = birthDay;
+        }
+
+        public BuilderAuthor id(long value) {
+            id = value;
+            return this;
+        }
+
+        public BuilderAuthor surName(String value) {
+            surName = value;
+            return this;
+        }
+
+        public BuilderAuthor firstName(String value) {
+            firstName = value;
+            return this;
+        }
+
+        public BuilderAuthor patronymic(String value) {
+            patronymic = value;
+            return this;
+        }
+
+        public Author build() {
+            return new Author(this);
+        }
     }
 }
