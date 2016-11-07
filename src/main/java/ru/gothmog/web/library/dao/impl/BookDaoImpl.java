@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.gothmog.web.library.beans.*;
 import ru.gothmog.web.library.dao.EntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
+import ru.gothmog.web.library.enums.SearchType;
 
 import java.io.IOException;
 import java.sql.*;
@@ -94,6 +95,7 @@ public class BookDaoImpl implements EntityDao<Book> {
         }
         return result;
     }
+
     @Override
     public void delete(long id) {
         log.info("Delete book");
@@ -110,6 +112,7 @@ public class BookDaoImpl implements EntityDao<Book> {
             log.error("Error delete and input book data", ex);
         }
     }
+
     @Override
     public Book read(long id) {
         log.info("Read book");
@@ -144,15 +147,8 @@ public class BookDaoImpl implements EntityDao<Book> {
         return book;
     }
 
-    @Override
-    public List<Book> getAll() {
-        log.info("Get all books");
-        List<Book> list = new ArrayList<>();
-        String sql = "SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, " +
-                "a.fullname AS author, g.names AS genre, b.image FROM library.book b " +
-                "INNER JOIN library.author a ON b.authorid = a.id " +
-                "INNER JOIN library.genre g ON b.genreid = g.id " +
-                "INNER JOIN library.publisher p ON b.publisherid = p.id ORDER BY b.bookname";
+    private List<Book> getBooks(String sql) {
+        log.info("Get books ");
         try (Connection connection = daoSettings.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
@@ -173,28 +169,68 @@ public class BookDaoImpl implements EntityDao<Book> {
                 book.setLastEditedDate(resultSet.getDate("lastEditedDate"));
                 book.setCreateUserBook((User) resultSet.getObject("createUserBook"));
                 book.setLastEditedUserBook((User) resultSet.getObject("lastEditedUserBook"));
-                list.add(book);
+                bookList.add(book);
             }
             resultSet.close();
             statement.close();
             connection.close();
+
         } catch (SQLException | IOException ex) {
-            log.error("Error when getting and input output all books");
+            log.error("Error when getting books by genre input data");
         }
-        return list;
+        return bookList;
+
     }
 
-    public List<Book> getBooksByGenre(long id){
-        log.info("Get books by genre");
-        List<Book> list = new ArrayList<>();
+    @Override
+    public List<Book> getAll() {
+        log.info("Get all books");
+        String sql = "SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, " +
+                "a.fullname AS author, g.names AS genre, b.image FROM library.book b " +
+                "INNER JOIN library.author a ON b.authorid = a.id " +
+                "INNER JOIN library.genre g ON b.genreid = g.id " +
+                "INNER JOIN library.publisher p ON b.publisherid = p.id ORDER BY b.bookname";
+        return getBooks(sql);
+    }
 
+
+    public List<Book> getBooksByGenre(long id) {
         String sql = "SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, " +
                 "a.fullname AS author, g.names AS genre, b.image FROM library.book b " +
                 "INNER JOIN library.author a ON b.authorid = a.id " +
                 "INNER JOIN library.genre g ON b.genreid = g.id " +
                 "INNER JOIN library.publisher p ON b.publisherid = p.id " +
                 "WHERE genreid = " + id + " ORDER BY b.bookname LIMIT 0 OFFSET 5";
-        return  list;
+        if (id == 0) {
+            return getAll();
+        } else {
+            return getBooks(sql);
+        }
+    }
+
+    public List<Book> getBooksByLetter(String letter) {
+        String sql = "SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, " +
+                "a.fullname AS author, g.names AS genre, b.image FROM library.book b " +
+                "INNER JOIN library.author a ON b.authorid = a.id " +
+                "INNER JOIN library.genre g ON b.genreid = g.id " +
+                "INNER JOIN library.publisher p ON b.publisherid = p.id " +
+                "WHERE substr(b.bookname,1,1) = '" + letter + "' order by b.bookname";
+        return getBooks(sql);
+    }
+
+    public List<Book> getBooksBySearch(String searchStr, SearchType searchType) {
+        StringBuilder sql = new StringBuilder("SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, a.fullname AS author, g.names AS genre, b.image FROM library.book b "
+                + "INNER JOIN library.author a ON b.authorid = a.id "
+                + "INNER JOIN library.genre g ON b.genreid = g.id "
+                + "INNER JOIN library.publisher p ON b.publisherid = p.id ");
+
+        if (searchType == SearchType.AUTHOR) {
+            sql.append("WHERE lower(a.fullname) LIKE '%" + searchStr.toLowerCase() + "%' order by b.bookname ");
+        } else if (searchType == SearchType.TITLE) {
+            sql.append("WHERE lower(b.bookname) LIKE '%" + searchStr.toLowerCase() + "%' order by b.bookname ");
+        }
+        sql.append("LIMIT 0 OFFSET 5");
+        return getBooks(sql.toString());
     }
 
     public List<Book> getBookList() {
