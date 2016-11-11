@@ -195,6 +195,7 @@ public class BookDaoImpl implements EntityDao<Book> {
 
 
     public List<Book> getBooksByGenre(long id) {
+        log.info("Get Books By Genre");
         String sql = "SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, " +
                 "a.fullname AS author, g.names AS genre, b.image FROM library.book b " +
                 "INNER JOIN library.author a ON b.authorid = a.id " +
@@ -209,6 +210,7 @@ public class BookDaoImpl implements EntityDao<Book> {
     }
 
     public List<Book> getBooksByLetter(String letter) {
+        log.info("Get books by letter");
         String sql = "SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, " +
                 "a.fullname AS author, g.names AS genre, b.image FROM library.book b " +
                 "INNER JOIN library.author a ON b.authorid = a.id " +
@@ -219,6 +221,7 @@ public class BookDaoImpl implements EntityDao<Book> {
     }
 
     public List<Book> getBooksBySearch(String searchStr, SearchType searchType) {
+        log.info("Get books by search");
         StringBuilder sql = new StringBuilder("SELECT b.id,b.bookname,b.isbn,b.pagecount,b.publisherdate, p.fullname AS publisher, a.fullname AS author, g.names AS genre, b.image FROM library.book b "
                 + "INNER JOIN library.author a ON b.authorid = a.id "
                 + "INNER JOIN library.genre g ON b.genreid = g.id "
@@ -233,6 +236,25 @@ public class BookDaoImpl implements EntityDao<Book> {
         return getBooks(sql.toString());
     }
 
+    public Book getBooksByPdfContent(){
+        log.info("pdf файла загружаем в это поле только в нужный момент (для просмотра)");
+        Book book = new Book();
+        String sql = "SELECT library.book.content FROM library.book WHERE id =" + book.getId();
+        try(Connection connection = daoSettings.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                book.setContent(resultSet.getBytes("content"));
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException | IOException ex){
+            log.error("Error input data content pdf");
+        }
+        return book;
+    }
+
     public List<Book> getBookList() {
         if (!bookList.isEmpty()) {
             return bookList;
@@ -240,4 +262,6 @@ public class BookDaoImpl implements EntityDao<Book> {
             return getAll();
         }
     }
+
+
 }
