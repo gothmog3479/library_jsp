@@ -1,5 +1,7 @@
 package ru.gothmog.web.library.beans;
 
+import ru.gothmog.web.library.dao.impl.BookDaoImpl;
+
 import java.sql.Date;
 
 /**
@@ -163,6 +165,10 @@ public class Book {
         this.lastEditedUserBook = lastEditedUserBook;
     }
 
+    public void fillPdfContent(){
+        String pdfContent = String.valueOf(new BookDaoImpl().getBooksByPdfContent());
+    }
+
     public static class BuilderBook {
         //Required parameters
         private String bookName;
@@ -256,4 +262,6 @@ public class Book {
             return new Book(this);
         }
     }
+
+
 }
