@@ -1,12 +1,13 @@
-<%@page import="ru.javabegin.training.web.beans.Book" %>
-<%@page import="ru.javabegin.training.web.enums.SearchType" %>
+<%@page import="ru.gothmog.web.library.beans.Book" %>
+<%@page import="ru.gothmog.web.library.enums.SearchType" %>
 <%@page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
 <%@include file="../WEB-INF/jspf/left_menu.jspf" %>
 
-<jsp:useBean id="bookList" class="ru.javabegin.training.web.beans.BookList" scope="page"/>
+<jsp:useBean id="bookList" class="ru.gothmog.web.library.dao.impl.BookDaoImpl" scope="page"/>
 
 <%@include file="../WEB-INF/jspf/letters.jspf" %>
 
@@ -14,11 +15,11 @@
 
 
     <%
-        ArrayList<Book> list = null;
+        List<Book> list = null;
 
 
-        if (request.getParameter("genre_id") != null) {
-            long genreId = Long.valueOf(request.getParameter("genre_id"));
+        if (request.getParameter("genreid") != null) {
+            long genreId = Long.valueOf(request.getParameter("genreid"));
             list = bookList.getBooksByGenre(genreId);
         } else if (request.getParameter("letter") != null) {
             String letter = request.getParameter("letter");
@@ -37,7 +38,7 @@
         } else if (session.getAttribute("currentBookList") != null) {
             list = (ArrayList<Book>) session.getAttribute("currentBookList");
         } else {
-            list = bookList.getAllBooks();
+            list = bookList.getAll();
         }
     %>
     <h5 style="text-align: left; margin-top:20px;">Найдено книг: <%=list.size()%>
@@ -50,7 +51,7 @@
     <div class="book_info">
         <div class="book_title">
             <p><a href="<%=request.getContextPath()%>/PdfContent?index=<%=list.indexOf(book)%>"
-                  target="_blank"><%=book.getName()%>
+                  target="_blank"><%=book.getBookName()%>
             </a></p>
         </div>
         <div class="book_image">
