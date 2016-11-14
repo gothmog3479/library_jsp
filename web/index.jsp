@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Онлайн библиотека:Вход</title>
-    <link href="css/style_index.css" rel="stylesheet" type="text/css">
+    <link href="resources/css/style_index.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
 <div class="main">
 
     <div class="content">
-        <p class="title"><span class="text"><img src="images/lib.png" width="76" height="77" hspace="10" vspace="10"
+        <p class="title"><span class="text"><img src="resources/images/lib.png" width="76" height="77" hspace="10" vspace="10"
                                                  align="middle"></span></p>
         <p class="title">Онлайн библиотека</p>
         <p class="text">Добро пожаловать в онлайн библиотеку, где вы сможете найти любую книгу на ваш вкус. Доступны

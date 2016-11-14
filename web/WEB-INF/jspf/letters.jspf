@@ -1,7 +1,7 @@
 <%@ page pageEncoding="UTF-8" %>
 
 <div class="letters">
-    <jsp:useBean id="letterList" class="ru.javabegin.training.web.beans.LetterList" scope="application"/>
+    <jsp:useBean id="letterList" class="ru.gothmog.web.library.beans.LetterList" scope="application"/>
     <%
 
         String searchLetter = null;
