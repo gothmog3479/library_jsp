@@ -1,7 +1,52 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-    <display-name>Archetype Created Web Application</display-name>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <filter>
+        <filter-name>CheckSessionFilter</filter-name>
+        <filter-class>ru.gothmog.web.library.filters.CheckSessionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CheckSessionFilter</filter-name>
+        <url-pattern>/pages/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <description>HttpSessionListener</description>
+        <listener-class>ru.gothmog.web.library.listeners.SessionListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>ru.gothmog.web.library.listeners.ContextListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>ShowImage</servlet-name>
+        <servlet-class>ru.gothmog.web.library.servlets.ShowImage</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfContent</servlet-name>
+        <servlet-class>ru.gothmog.web.library.servlets.PdfContent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowImage</servlet-name>
+        <url-pattern>/ShowImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfContent</servlet-name>
+        <url-pattern>/PdfContent</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <jsp-config>
+        <jsp-property-group>
+            <display-name>header_and_footer</display-name>
+            <url-pattern>/pages/*</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+            <include-prelude>/WEB-INF/jspf/header.jspf</include-prelude>
+            <include-coda>/WEB-INF/jspf/footer.jspf</include-coda>
+        </jsp-property-group>
+    </jsp-config>
 </web-app>
