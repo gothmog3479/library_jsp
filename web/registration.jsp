@@ -63,11 +63,11 @@
                     </td>
                     <td valign="top" style="font-family:Palatino;font-style: italic; font-size: 16px">
                         Пароль:
-                        <input type="text" name="password" value="" size="15" maxlength=20 style="width: 90%; margin: 4px "/>
+                        <input type="password" name="password" value="" size="15" maxlength=20 style="width: 90%; margin: 4px "/>
                     </td>
                     <td valign="top" style="font-family:Palatino;font-style: italic; font-size: 16px">
                         Повторите пароль:
-                        <input type="text" name="password" value="" size="15" maxlength=20 style="width: 90%; margin: 4px "/>
+                        <input type="password" name="password" value="" size="15" maxlength=20 style="width: 90%; margin: 4px "/>
                     </td>
                 </tr>
                 <tr bgcolor="#1e90ff">
