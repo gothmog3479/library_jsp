@@ -35,12 +35,25 @@ body {
     padding: 20px;
 }
 
+.register_form {
+    padding-left: 50px;
+    text-align: center;
+    padding: 20px;
+}
+
 .login_div {
     width: 350px;
     border: 1px solid #eaeaea;
     margin: 0 auto;
     padding: 10px;
 
+}
+
+.register_div {
+    width: 350px;
+    border: 1px solid #eaeaea;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .footer {
@@ -54,4 +67,8 @@ body {
 .content {
     height: 260px;
 
+}
+
+.content_register {
+    height: 150px;
 }
