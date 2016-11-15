@@ -86,7 +86,6 @@
             </table>
         </form>
     </div>
-
     <div class="footer">
         Разработчик: Дмитрий Грушецкий, 2016 г
     </div>
