@@ -3,6 +3,7 @@ package ru.gothmog.web.library.servlets;
 import ru.gothmog.web.library.beans.Book;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,9 +11,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-/**
- * Created by gothmog on 14.11.2016.
- */
+@WebServlet(displayName = "ShowImage", urlPatterns = {"/ShowImage"})
 public class ShowImage extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

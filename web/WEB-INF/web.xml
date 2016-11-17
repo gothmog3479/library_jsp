@@ -16,22 +16,6 @@
         <description>ServletContextListener</description>
         <listener-class>ru.gothmog.web.library.listeners.ContextListener</listener-class>
     </listener>
-    <servlet>
-        <servlet-name>ShowImage</servlet-name>
-        <servlet-class>ru.gothmog.web.library.servlets.ShowImage</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PdfContent</servlet-name>
-        <servlet-class>ru.gothmog.web.library.servlets.PdfContent</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ShowImage</servlet-name>
-        <url-pattern>/ShowImage</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PdfContent</servlet-name>
-        <url-pattern>/PdfContent</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

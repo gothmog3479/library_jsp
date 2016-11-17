@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.gothmog.web.library.beans.Book;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-
+@WebServlet(displayName = "PdfContent", urlPatterns = {"/PdfContent"})
 public class PdfContent extends HttpServlet {
     private static final Logger log = Logger.getLogger(PdfContent.class);
 
