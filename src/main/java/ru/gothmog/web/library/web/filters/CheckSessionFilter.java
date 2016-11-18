@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.filters;
+package ru.gothmog.web.library.web.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

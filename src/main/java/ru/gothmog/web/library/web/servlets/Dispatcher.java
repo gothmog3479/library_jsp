@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.servlets;
+package ru.gothmog.web.library.web.servlets;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

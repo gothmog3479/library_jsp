@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    <filter>
-        <filter-name>CheckSessionFilter</filter-name>
-        <filter-class>ru.gothmog.web.library.filters.CheckSessionFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>CheckSessionFilter</filter-name>
-        <url-pattern>/pages/*</url-pattern>
-    </filter-mapping>
-    <listener>
-        <description>HttpSessionListener</description>
-        <listener-class>ru.gothmog.web.library.listeners.SessionListener</listener-class>
-    </listener>
-    <listener>
-        <description>ServletContextListener</description>
-        <listener-class>ru.gothmog.web.library.listeners.ContextListener</listener-class>
-    </listener>
+
     <session-config>
         <session-timeout>
             30

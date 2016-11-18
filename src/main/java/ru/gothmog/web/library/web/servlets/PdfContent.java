@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.servlets;
+package ru.gothmog.web.library.web.servlets;
 
 import org.apache.log4j.Logger;
 import ru.gothmog.web.library.beans.Book;

@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.servlets;
+package ru.gothmog.web.library.web.servlets;
 
 import ru.gothmog.web.library.beans.Book;
 

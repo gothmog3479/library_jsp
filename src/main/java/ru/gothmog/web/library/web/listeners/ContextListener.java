@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.listeners;
+package ru.gothmog.web.library.web.listeners;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
