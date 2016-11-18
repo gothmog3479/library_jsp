@@ -1,6 +1,7 @@
 package ru.gothmog.web.library.listeners;
 
 import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 /**
  * Created by gothmog on 27.09.2016.
  */
+@WebListener
 public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {

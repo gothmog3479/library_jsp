@@ -2,12 +2,14 @@ package ru.gothmog.web.library.listeners;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 /**
  * Created by gothmog on 27.09.2016.
  */
+@WebListener
 public class ContextListener implements ServletContextListener {
 
     private HashMap sessionMap = new HashMap<String, HttpSession>();
