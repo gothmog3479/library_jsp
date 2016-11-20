@@ -1,11 +1,12 @@
 package ru.gothmog.web.library.beans;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by gothmog on 21.09.2016.
  */
-public class User {
+public class User implements Serializable{
     private long id;
     private Role role;
     private String loginName;
