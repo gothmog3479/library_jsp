@@ -1,6 +1,6 @@
 package ru.gothmog.web.library.web.servlets;
 
-import ru.gothmog.web.library.beans.Book;
+import ru.gothmog.web.library.model.Book;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

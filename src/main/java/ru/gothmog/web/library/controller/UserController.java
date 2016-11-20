@@ -1,10 +1,8 @@
 package ru.gothmog.web.library.controller;
 
-import ru.gothmog.web.library.beans.User;
+import ru.gothmog.web.library.model.User;
 import ru.gothmog.web.library.dao.impl.UserDaoImpl;
-import ru.gothmog.web.library.web.session.SessionBean;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 

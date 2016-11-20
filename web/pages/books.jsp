@@ -1,4 +1,4 @@
-<%@page import="ru.gothmog.web.library.beans.Book" %>
+<%@page import="ru.gothmog.web.library.model.Book" %>
 <%@page import="ru.gothmog.web.library.enums.SearchType" %>
 <%@page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>

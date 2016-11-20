@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.beans;
+package ru.gothmog.web.library.model;
 
 /**
  * Created by gothmog on 21.09.2016.

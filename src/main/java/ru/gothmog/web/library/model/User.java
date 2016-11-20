@@ -1,4 +1,4 @@
-package ru.gothmog.web.library.beans;
+package ru.gothmog.web.library.model;
 
 import java.io.Serializable;
 import java.sql.Date;

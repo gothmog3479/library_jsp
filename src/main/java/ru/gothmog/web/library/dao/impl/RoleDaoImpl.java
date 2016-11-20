@@ -1,8 +1,8 @@
 package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
-import ru.gothmog.web.library.beans.Role;
-import ru.gothmog.web.library.beans.User;
+import ru.gothmog.web.library.model.Role;
+import ru.gothmog.web.library.model.User;
 import ru.gothmog.web.library.dao.EntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 

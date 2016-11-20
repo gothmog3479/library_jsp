@@ -1,7 +1,7 @@
 package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
-import ru.gothmog.web.library.beans.Publisher;
+import ru.gothmog.web.library.model.Publisher;
 import ru.gothmog.web.library.dao.ObjectDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 
