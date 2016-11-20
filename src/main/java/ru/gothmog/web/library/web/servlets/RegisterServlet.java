@@ -23,6 +23,9 @@ public class RegisterServlet extends HttpServlet {
         User user = new User.BuilderUser(request.getParameter("loginName"), request.getParameter("password"), request.getParameter("fullName"), request.getParameter("email")).build();
         if (userDao.create(user)) {
             response.sendRedirect("/");
+        } else {
+            request.setAttribute("error", "<font color = red>The current user is exist</font>");
+            getServletContext().getRequestDispatcher("/views/registration.jsp").forward(request, response);
         }
     }
 
