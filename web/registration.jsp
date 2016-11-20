@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <!DOCTYPE html>
 
 <html>
@@ -24,7 +25,7 @@
     </div>
     <div class="register_div">
         <p class="title">Для регистрации введит свои данные:</p>
-        <form class="register_form" name="username" action="pages/main.jsp" method="POST">
+        <form class="register_form" name="registration" action="<c:url value="/registration"/>" method="POST">
             <table width="100%" cellpadding="4" cellspacing="2" border=0>
                 <tr bgcolor="#1e90ff">
                     <td valign="top" style="font-family:Palatino;font-style: italic; font-size: 16px">
@@ -80,12 +81,18 @@
                 </tr>
                 <tr bgcolor="#1e90ff">
                     <td  align=center colspan=3>
-                        <input type="submit" value="Ок"> <input type="reset" value="Отмена">
+                        <input type="submit" value="Ок"> <input type="reset" value="Отмена" onclick="openPage('index.jsp')">
                     </td>
                 </tr>
             </table>
         </form>
     </div>
+    <script type="text/javascript">
+        function openPage(pageURL)
+        {
+            window.location.href = pageURL;
+        }
+    </script>
     <div class="footer">
         Разработчик: Дмитрий Грушецкий, 2016 г
     </div>
