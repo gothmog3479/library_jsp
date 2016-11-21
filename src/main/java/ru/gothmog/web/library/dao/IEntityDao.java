@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by gothmog on 22.09.2016.
  */
-public interface EntityDao<T> {
+public interface IEntityDao<T> {
     boolean create(T type);
 
     void delete(long id);

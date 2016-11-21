@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by gothmog on 22.09.2016.
  */
-public interface ObjectDao<T> {
+public interface IObjectDao<T> {
     void create(T type) throws IOException;
 
     void update(long id, String fullName) throws IOException;

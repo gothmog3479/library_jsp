@@ -2,7 +2,7 @@ package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
 import ru.gothmog.web.library.model.*;
-import ru.gothmog.web.library.dao.EntityDao;
+import ru.gothmog.web.library.dao.IEntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 import ru.gothmog.web.library.enums.SearchType;
 
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by gothmog on 23.09.2016.
  */
-public class BookDaoImpl implements EntityDao<Book> {
+public class BookDaoImpl implements IEntityDao<Book> {
     private static final Logger log = Logger.getLogger(BookDaoImpl.class);
     private ImplDaoSettings daoSettings = new ImplDaoSettings();
     private List<Book> bookList = new ArrayList<>();

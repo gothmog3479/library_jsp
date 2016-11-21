@@ -2,7 +2,7 @@ package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
 import ru.gothmog.web.library.model.Genre;
-import ru.gothmog.web.library.dao.ObjectDao;
+import ru.gothmog.web.library.dao.IObjectDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ import java.util.List;
  * группа методов CRUD(создание, чтение, обновление, удаление названия жанров)
  * Created by gothmog on 21.09.2016.
  */
-public class GenreDaoImpl implements ObjectDao<Genre> {
+public class GenreDaoImpl implements IObjectDao<Genre> {
     private static final Logger log = Logger.getLogger(GenreDaoImpl.class);
     private ImplDaoSettings daoSettings = new ImplDaoSettings();
     private List<Genre> genreList = new ArrayList<>();

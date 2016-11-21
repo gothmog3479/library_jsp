@@ -3,7 +3,7 @@ package ru.gothmog.web.library.dao.impl;
 import org.apache.log4j.Logger;
 import ru.gothmog.web.library.model.Role;
 import ru.gothmog.web.library.model.User;
-import ru.gothmog.web.library.dao.EntityDao;
+import ru.gothmog.web.library.dao.IEntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by gothmog on 22.09.2016.
  */
-public class RoleDaoImpl implements EntityDao<Role> {
+public class RoleDaoImpl implements IEntityDao<Role> {
     private static final Logger log = Logger.getLogger(RoleDaoImpl.class);
     private ImplDaoSettings daoSettings = new ImplDaoSettings();
     private List<Role> roleList = new ArrayList<>();

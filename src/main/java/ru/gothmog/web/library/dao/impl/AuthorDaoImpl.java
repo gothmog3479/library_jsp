@@ -2,7 +2,7 @@ package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
 import ru.gothmog.web.library.model.Author;
-import ru.gothmog.web.library.dao.EntityDao;
+import ru.gothmog.web.library.dao.IEntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by gothmog on 21.09.2016.
  */
-public class AuthorDaoImpl implements EntityDao<Author> {
+public class AuthorDaoImpl implements IEntityDao<Author> {
     private final static Logger log = Logger.getLogger(AuthorDaoImpl.class);
     private ImplDaoSettings daoSettings = new ImplDaoSettings();
     private List<Author> authorList = new ArrayList<>();
