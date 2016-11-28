@@ -1,8 +1,8 @@
 package ru.gothmog.web.library.web.servlets;
 
 import org.apache.log4j.Logger;
-import ru.gothmog.web.library.model.User;
 import ru.gothmog.web.library.dao.impl.UserDaoImpl;
+import ru.gothmog.web.library.model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

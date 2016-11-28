@@ -165,9 +165,9 @@ public class Book {
         this.lastEditedUserBook = lastEditedUserBook;
     }
 
-    public Book fillPdfContent(){
+    public Book fillPdfContent() {
         return new BookDaoImpl().getBooksByPdfContent();
-       // String pdfContent = String.valueOf(new BookDaoImpl().getBooksByPdfContent());
+        // String pdfContent = String.valueOf(new BookDaoImpl().getBooksByPdfContent());
     }
 
     public static class BuilderBook {

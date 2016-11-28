@@ -6,7 +6,7 @@ import java.sql.Date;
 /**
  * Created by gothmog on 21.09.2016.
  */
-public class User implements Serializable{
+public class User implements Serializable {
     private long id;
     private Role role;
     private String loginName;

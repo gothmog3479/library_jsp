@@ -1,10 +1,10 @@
 package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
-import ru.gothmog.web.library.model.*;
 import ru.gothmog.web.library.dao.IEntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
 import ru.gothmog.web.library.enums.SearchType;
+import ru.gothmog.web.library.model.*;
 
 import java.io.IOException;
 import java.sql.*;
@@ -236,20 +236,20 @@ public class BookDaoImpl implements IEntityDao<Book> {
         return getBooks(sql.toString());
     }
 
-    public Book getBooksByPdfContent(){
+    public Book getBooksByPdfContent() {
         log.info("pdf файла загружаем в это поле только в нужный момент (для просмотра)");
         Book book = new Book();
         String sql = "SELECT library.book.content FROM library.book WHERE id =" + book.getId();
-        try(Connection connection = daoSettings.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = daoSettings.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 book.setContent(resultSet.getBytes("content"));
             }
             resultSet.close();
             statement.close();
             connection.close();
-        } catch (SQLException | IOException ex){
+        } catch (SQLException | IOException ex) {
             log.error("Error input data content pdf");
         }
         return book;

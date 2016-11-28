@@ -1,10 +1,10 @@
 package ru.gothmog.web.library.dao.impl;
 
 import org.apache.log4j.Logger;
-import ru.gothmog.web.library.model.Role;
-import ru.gothmog.web.library.model.User;
 import ru.gothmog.web.library.dao.IEntityDao;
 import ru.gothmog.web.library.dao.settings.ImplDaoSettings;
+import ru.gothmog.web.library.model.Role;
+import ru.gothmog.web.library.model.User;
 
 import java.io.IOException;
 import java.sql.*;

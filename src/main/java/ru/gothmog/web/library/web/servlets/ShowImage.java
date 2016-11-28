@@ -21,11 +21,11 @@ public class ShowImage extends HttpServlet {
         try {
             int index = Integer.valueOf(request.getParameter("index"));
 
-            ArrayList<Book> list = (ArrayList<Book>)request.getSession(false).getAttribute("currentBookList");
+            ArrayList<Book> list = (ArrayList<Book>) request.getSession(false).getAttribute("currentBookList");
             Book book = list.get(index);
             response.setContentLength(book.getImage().length);
             out.write(book.getImage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
             out.close();

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class PdfContent extends HttpServlet {
     private static final Logger log = Logger.getLogger(PdfContent.class);
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/pdf");
         OutputStream out = response.getOutputStream();
         try {
@@ -27,7 +27,7 @@ public class PdfContent extends HttpServlet {
             response.setContentLength(book.getContent().length);
             out.write(book.getContent());
         } catch (Exception ex) {
-           log.error("Error request" + ex);
+            log.error("Error request" + ex);
         } finally {
             out.close();
         }
